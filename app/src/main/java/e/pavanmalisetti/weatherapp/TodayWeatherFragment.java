@@ -101,7 +101,7 @@ public class TodayWeatherFragment extends Fragment {
 
                         //Load information
                         txt_city_name.setText(weatherResult.getName());
-                        txt_description.setText(new StringBuilder("Weather in")
+                        txt_description.setText(new StringBuilder("Weather in ")
                         .append(weatherResult.getName().toString()));
                         txt_temperature.setText(new StringBuilder(
                                 String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
@@ -128,4 +128,9 @@ public class TodayWeatherFragment extends Fragment {
         );
     }
 
+    @Override
+    public void onStop() {
+        compositeDisposable.clear();
+        super.onStop();
+    }
 }

@@ -1,5 +1,6 @@
 package e.pavanmalisetti.weatherapp.Retrofit;
 
+import e.pavanmalisetti.weatherapp.Model.WeatherForecastResult;
 import e.pavanmalisetti.weatherapp.Model.WeatherResult;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -12,4 +13,10 @@ public interface IOpenWeatherMap {
                                                  @Query("lon") String lng,
                                                  @Query("appid") String appid,
                                                  @Query("units") String unit);
+
+    @GET("forecast")
+    Observable<WeatherForecastResult> getForecastWeatherByLatLng(@Query("lat") String lat,
+                                                                 @Query("lon") String lng,
+                                                                 @Query("appid") String appid,
+                                                                 @Query("units") String unit);
 }
